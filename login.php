@@ -1,40 +1,31 @@
 <?php
-	require_once "config.php";
+    require_once "facebook-config.php";
 
-	if (isset($_SESSION['access_token'])) {
-		header('Location: index.php');
-		exit();
-	}
-
-	$redirectURL = "http://localhost:8080/FacebookLogin/fb-callback.php";
-	$permissions = ['email'];
-	$loginURL = $helper->getLoginUrl($redirectURL, $permissions);
+    $redirectURL = "http://localhost:8080/demo/facebook-callback.php";
+    $permissions = ['email', 'public_profile'];
+    $loginURL = $helper->getLoginUrl($redirectURL,$permissions);
+    // echo $loginURL;
 ?>
-<!doctype html>
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Log In</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-	<div class="container" style="margin-top: 100px">
-		<div class="row justify-content-center">
-			<div class="col-md-6 col-md-offset-3" align="center">
-				<img src="images/logo.png"><br><br>
-				<form>
-					<input name="email" placeholder="Email" class="form-control"><br>
-					<input name="password" type="password" placeholder="Password" class="form-control"><br>
-					<input type="submit" value="Log In" class="btn btn-primary">
-					<input type="button" onclick="window.location = '<?php echo $loginURL ?>';" value="Log In With Facebook" class="btn btn-primary">
-				</form>
-			</div>
-		</div>
-	</div>
-
+    <div class="container" style="margin-top:20px;">
+        <div class="row text-center">
+            <input type="button"  onclick="window.location = '<?= $loginURL?>'" class="btn btn-lg btn-primary" value="Login to facebook">
+            <input type="button" class="btn btn-lg btn-success" value="Login to Google">
+        </div>
+    </div>
 </body>
 </html>
