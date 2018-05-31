@@ -25,10 +25,6 @@
         exit();
       }
       
-      // Logged in
-      echo '<h3>Access Token</h3>';
-      var_dump($accessToken->getValue());
-      
       // The OAuth 2.0 client handler helps us manage access tokens
       $oAuth2Client = $FB->getOAuth2Client();
       
@@ -40,17 +36,36 @@
           echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
           exit();
         }
-      
-        echo '<h3>Long-lived</h3>';
-        var_dump($accessToken->getValue());
       }
 
         $response = $FB->get("/me?fields=id, first_name, last_name, email, picture.type(large)", $accessToken);
         $userData = $response->getGraphNode()->asArray();
         $_SESSION['userData'] = $userData;
+
+        echo "First Name= ".$userData['first_name'] . " <br>";
+        echo "Last Name= ".$userData['last_name'] . " <br>";
+        $email = $userData['email'];
+
+        //check user exist or not in db
+        //fetch_user_query = "SELECT * FROM users WHERE email = '$email'";
+
+        //if user data not in db 
+
+            //create random password 
+
+            //save user data with password
+
+            //send email to user with new passsword
+
+        //Redirect to previous page...
+
+
+
+
+
         
-        echo '<h3>User Data</h3>';
-        var_dump($_SESSION['userData']) ;
+        // echo '<h3>User Data</h3>';
+        // var_dump($_SESSION['userData']) ;
         $_SESSION['access_token'] = (string) $accessToken;
         //header('Location: index.php');
         exit();

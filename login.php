@@ -1,9 +1,11 @@
 <?php
     require_once "facebook-config.php";
+    require_once "google-config.php";
+    $googleLoginUrl = $gClient->createAuthUrl();
 
     $redirectURL = "http://localhost:8080/demo/facebook-callback.php";
     $permissions = ['email', 'public_profile'];
-    $loginURL = $helper->getLoginUrl($redirectURL,$permissions);
+    $faceBookLoginURL = $helper->getLoginUrl($redirectURL,$permissions);
     // echo $loginURL;
 ?>
 
@@ -23,8 +25,8 @@
 <body>
     <div class="container" style="margin-top:20px;">
         <div class="row text-center">
-            <input type="button"  onclick="window.location = '<?= $loginURL?>'" class="btn btn-lg btn-primary" value="Login to facebook">
-            <input type="button" class="btn btn-lg btn-success" value="Login to Google">
+            <input type="button"  onclick="window.location = '<?= $faceBookLoginURL?>'" class="btn btn-lg btn-primary" value="Login to facebook">
+            <input type="button" onclick="window.location = '<?= $googleLoginUrl?>'" class="btn btn-lg btn-success" value="Login to Google">
         </div>
     </div>
 </body>
