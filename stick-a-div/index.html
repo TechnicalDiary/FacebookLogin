@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css/all.css" type="text/css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+<script type="text/javascript">
+$(document).ready(function() {
+	var s = $("#sticker");
+	var pos = s.position();	
+	var leftMenulinks = $("#sticker").find(".nav-link"); 
+	var stickermax = $(document).outerHeight() - $("#footer").outerHeight() - s.outerHeight() - 210; //40 value is the total of the top and bottom margin
+	$(window).scroll(function() {
+		var windowpos = $(window).scrollTop();
+		//s.html("Distance from top:" + pos.top + "<br />Scroll position: " + windowpos);
+		if (windowpos >= pos.top && windowpos < stickermax) {
+			s.attr("style", ""); //kill absolute positioning
+			s.addClass("stick"); //stick it
+		} else if (windowpos >= stickermax) {
+			s.removeClass(); //un-stick
+			s.css({position: "absolute", top: stickermax + "px", width: 95+ "%"}); //set sticker right above the footer
+			
+		} else {
+			s.removeClass(); //top of page
+		}
+		
+
+		leftMenulinks.each(function() {
+			var sectionOffset = $(this.hash).offset().top;
+			if( sectionOffset <= windowpos) {
+				$(this).parent().addClass('active');
+				$(this).parent().siblings().removeClass('active');
+			}
+		});
+	});
+
+	leftMenulinks.click(function(e) {
+		$("body,html").animate({ scrollTop: $(this.hash).offset().top }, 700);
+		$(this).parent().addClass('active');
+		$(this).parent().siblings().removeClass('active');
+	});
+});
+</script>
+
+<div class="container-fluid" id="wrapper">
+	<div class="row">
+		<div class="col col-md-2  hidden-xs hidden-sm">
+			<div id="sticker">
+				<nav class="navbar navbar-default">
+					<ul class="nav" role="tablist">
+						<li><a class="nav-link left-menu-link" href="#section1">section1</a></li>
+						<li><a class="nav-link left-menu-link" href="#section2">section2</a></li>
+						<li><a class="nav-link left-menu-link" href="#section3">section3</a></li>
+						<li><a class="nav-link left-menu-link" href="#section4">section4</a></li>   
+						<li><a class="nav-link left-menu-link" href="#section5">section5</a></li>
+						<li><a class="nav-link left-menu-link" href="#section6">section6</a></li>
+						<li><a class="nav-link left-menu-link" href="#section7">section7</a></li>   
+						<li><a class="nav-link left-menu-link" href="#section8">section8</a></li>            
+					</ul>
+				</nav> 
+			</div>
+		</div>
+		<div class="col col-md-7 ">
+			<div class="edu-section edu-panel-primary" id="section1">
+				<div class="edu-panel-header text-center">
+					<i class="fa fa-institution"></i> About School	
+				</div>
+				<div class="edu-panel-body  shdow-on-hover">
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+				</div>
+			</div>
+			<div class="edu-section edu-panel-primary"  id="section2">
+				<div class="edu-panel-header text-center">
+					<i class="fa fa-leanpub"></i> Acadmeics
+				</div>
+				<div class="edu-panel-body  shdow-on-hover">
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+				</div>
+			</div>
+			<div class="edu-section edu-panel-primary"  id="section3">
+				<div class="edu-panel-header text-center">
+					<i class="fa fa-id-card"></i> Admission
+				</div>
+				<div class="edu-panel-body shdow-on-hover">
+					A navigation bar is a navigation header that is placed at the top of the page.
+				</div>
+			</div>
+			<div class="edu-section edu-panel-primary"  id="section4">
+				<div class="edu-panel-header text-center">
+					<i class="fa fa-inr"></i> Fee Structure
+				</div>
+				<div class="edu-panel-body shdow-on-hover">
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+				</div>
+			</div>
+			<div class="edu-section edu-panel-primary"  id="section5">
+				<div class="edu-panel-header text-center">
+					<i class="fa fa-universal-access"></i> Facilities
+				</div>
+				<div class="edu-panel-body shdow-on-hover">
+						<div class="row">
+						  <div class="row-hrading bg-warning text-primary text-center">
+							<h4>~ Laboratory ~</h4>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-stethoscope fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Bio Lab</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-flask fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Chemisry Lab</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <span class="badge badge-success top-right" title="Total views: 50000">
+								<i class="fa fa-eye fa-lg"> 50000</i>
+							  </span>
+							  <div class="card-icon text-center">
+								<i class="fa fa-desktop fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Computer Lab</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <span class="label label-success top-right" title="Total views: 50000">
+								<i class="fa fa-eye fa-lg"> 50000</i>
+							  </span>
+							  <div class="card-icon text-center">
+								<i class="fa fa-cutlery fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>HomeScience lab</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-cogs fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Physics Lab</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-leanpub fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Library</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						</div>
+						<div class="row">
+						  <div class="row-hrading bg-warning text-primary text-center">
+							<h4>~ Sports ~</h4>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-futbol-o fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Football</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-wifi fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Wifi</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <span class="badge badge-success top-right" title="Total views: 50000">
+								<i class="fa fa-eye fa-lg"> 50000</i>
+							  </span>
+							  <div class="card-icon text-center">
+								<i class="fa fa-medkit fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Medical Kit</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <span class="label label-success top-right" title="Total views: 50000">
+								<i class="fa fa-eye fa-lg"> 50000</i>
+							  </span>
+							  <div class="card-icon text-center">
+								<i class="fa fa-user-md fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Doctor</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>John Doe</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>John Doe</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>John Doe</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>John Doe</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>John Doe</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>John Doe</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>John Doe</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>John Doe</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						</div>
+						<div class="row">
+						  <div class="row-hrading bg-warning text-primary text-center">
+							<h4>~ Others ~</h4>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-bullhorn fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Auditorium</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-medkit fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Medical Kit</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-bus fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Transport</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-bed fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Hostel</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-lightbulb-o fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Power Backup</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-universal-access fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Swimming Pool</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-leanpub fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Library</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-3 col-xs-4">
+							<div class="card">
+							  <div class="card-icon text-center">
+								<i class="fa fa-wifi fa-3x"></i>
+							  </div>
+							  <div class="text-center">
+								<b>Wifi</b>
+								<p>Architect & Engineer</p>
+							  </div>
+							</div>
+						  </div>
+						</div>
+				</div>
+			</div>
+			<div class="edu-section edu-panel-primary"  id="section6">
+				<div class="edu-panel-header text-center">
+					<i class="fa fa-building"></i> Acheviment
+				</div>
+				<div class="edu-panel-body shdow-on-hover">
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+				</div>
+			</div>
+			<div class="edu-section edu-panel-primary"  id="section7">
+				<div class="edu-panel-header text-center">
+					<i class="fa fa-building"></i> Contact Details
+				</div>
+				<div class="edu-panel-body shdow-on-hover">
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+					A navigation bar is a navigation header that is placed at the top of the page.
+				</div>
+			</div>
+			<div class="edu-section edu-panel-primary"  id="section8">
+				<div class="edu-panel-header text-center">
+					<i class="fa fa-star"></i> Rating and Review
+				</div>
+				<div class="edu-panel-body shdow-on-hover">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-sm-3" style="border-right:1px solid grey">
+									<p> <span class="stars">3.5355</span></p>
+									<p>Average 4.5 Stars </p>
+									<p> Total 2356 votes</p>
+									<p> Total 2356 reviews</p>
+								</div>
+								<div class="col-sm-9">
+									<div class="media">
+										<div class="media-left">
+											<a href="#">
+											<img class="media-object" src="css/64x64.svg" alt="abc" style="height: 64px;width: 64px;">
+											</a>
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Media heading</h4>
+											<p>
+												Average 4.5 Stars Total 2356 votes Total 2356 reviews.
+												Average 4.5 Stars Total 2356 votes Total 2356 reviews.
+												Average 4.5 Stars Total 2356 votes Total 2356 reviews.
+												Average 4.5 Stars Total 2356 votes Total 2356 reviews.
+												Average 4.5 Stars Total 2356 votes Total 2356 reviews.
+												Average 4.5 Stars Total 2356 votes Total 2356 reviews.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col col-md-3"></div>
+	</div>
+</div>
+<div id="footer"></div><!--/wrapper-->
+
+
+<script>
+	$.fn.stars = function () {
+		return $(this).each(function () {
+		// Get the value
+		var val = parseFloat($(this).html());
+		// Make sure that the value is in 0 - 5 range, multiply to get width
+		var size = Math.max(0, (Math.min(5, val))) * 24;
+		// Create stars holder
+		var $span = $('<span />').width(size);
+		// Replace the numerical value with stars
+		$(this).html($span);
+		});
+	}
+
+	$(function () {
+		$('span.stars').stars();
+	});
+</script>
+</body>
+</html>
